@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>File Upload Previewer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>File Upload Previewer</h1>
+      <p class="subtle">Drag & drop or browse. Image, video, and PDF supported.</p>
+    </header>
+
+    <!-- Controls -->
+    <section class="controls">
+      <button id="browseBtn" class="btn">Browse Files</button>
+      <input id="fileInput" type="file" multiple hidden
+             accept="image/*,video/*,application/pdf" />
+      <button id="clearAllBtn" class="btn btn-ghost" disabled>Clear All</button>
+      <button id="mockUploadBtn" class="btn btn-primary" disabled>Mock Upload</button>
+    </section>
+
+    <!-- Dropzone -->
+    <section id="dropzone" class="dropzone" tabindex="0" aria-label="Drop files here">
+      <div class="dropzone-inner">
+        <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 16V4m0 0l-4 4m4-4l4 4M6 20h12a2 2 0 0 0 2-2v-3
+                   a2 2 0 0 0-2-2h-1" fill="none" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <p><strong>Drop files</strong> here or click <em>Browse Files</em></p>
+        <small>Max 5 MB per file • Up to 20 files</small>
+      </div>
+    </section>
+
+    <!-- Errors -->
+    <ul id="messages" class="messages" role="status" aria-live="polite"></ul>
+
+    <!-- Previews -->
+    <section>
+      <h2 class="section-title">Preview (<span id="fileCount">0</span>)</h2>
+      <div id="previewGrid" class="grid"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="subtle">Tip: You can paste an image from clipboard into the window.</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
